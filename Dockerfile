@@ -5,8 +5,4 @@ apt-get install -y make gcc vim valgrind
 
 WORKDIR /home
 
-COPY . .
-
-RUN make || true
-
 ENTRYPOINT [ "bash" ]
