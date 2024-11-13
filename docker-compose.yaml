@@ -1,0 +1,11 @@
+services:
+  debian32:
+    build:
+      context: ..
+      dockerfile: ./c-test-environment/Dockerfile
+    container_name: debian32
+    volumes:
+      - ./tests:/home/tests
+    restart: unless-stopped
+    stdin_open: true  # Keep the standard input open for interactive use
+    tty: true  # Allocate a pseudo-TTY for interactive mode

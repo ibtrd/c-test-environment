@@ -1,7 +1,9 @@
-NAME = my-32bit-debian
+detach :
+	docker compose up -d --build
 
-it: build
-	docker run -it -v ./tests:/home/tests $(NAME)
+down:
+	docker compose down
 
-build:
-	docker build -t $(NAME) -f Dockerfile ..
+it:
+	@docker exec -it debian32 bash
+
