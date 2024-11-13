@@ -6,6 +6,7 @@ services:
     container_name: debian32
     volumes:
       - ../:/home
+      - ./tests:/home/tests
     restart: unless-stopped
     stdin_open: true  # Keep the standard input open for interactive use
     tty: true  # Allocate a pseudo-TTY for interactive mode

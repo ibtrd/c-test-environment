@@ -1,12 +1,24 @@
 LIBFT = ../libft.a
 
 CC = cc
-CFLAGS = -Wextra -Werror -Wall
+CFLAGS = -Wextra -Wall -Werror
 
-test_putbnr_fd:  test_putnbr_fd.c $(LIBFT)
-	$(CC) $(CPPFLAGS) $< $(LIBFT)
+TESTS = \
+	test_putnbr_fd \
+	test_atoi
+
+all: $(TESTS)
+
+test% : $(LIBFT)
+	$(CC) $(CFLAGS) ./$@.c $(LIBFT) -o $@
 
 $(LIBFT) : FORCE
 	$(MAKE) -C $(dir $(LIBFT))
  
  FORCE:
+
+ fclean :
+	$(RM) $(TESTS)
+
+re : fclean
+	$(MAKE)
