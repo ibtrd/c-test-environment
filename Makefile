@@ -1,6 +1,7 @@
-.PHONY: run
-run : build
-	docker run -it my-32bit-debian
+NAME = my-32bit-debian
 
-build :
-	docker build -t my-32bit-debian -f Dockerfile ..
+it: build
+	docker run -it -v ./tests:/home/tests $(NAME)
+
+build:
+	docker build -t $(NAME) -f Dockerfile ..
