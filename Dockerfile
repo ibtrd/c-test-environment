@@ -7,6 +7,6 @@ WORKDIR /home
 
 COPY . .
 
-RUN make
+RUN make || true
 
 ENTRYPOINT [ "bash" ]
